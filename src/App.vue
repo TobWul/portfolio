@@ -69,10 +69,10 @@ body {
 .router-leave {
     position: fixed;
     left: 0;
-    transform: translateY(100vh);
+    transform: translateY(-100%);
 }
 .router-before-enter {
-    transform: translateY(-100vh);
+    transform: translateY(100vh);
 }
 
 h1,
