@@ -52,6 +52,12 @@
 
 @mixin css-reset {
 
+    *,
+    *::after,
+    *::before {
+        box-sizing: border-box;
+    }
+
     html,
     body,
     div,
