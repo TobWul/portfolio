@@ -1,5 +1,5 @@
 <template>
-    <div id="sentif" class="page">
+    <div id="sentif" class="page preserve-scroll">
         <header class="container">
             <h1>data gathering for research on spinal chord injured training</h1>
             <h4>The problem</h4>
@@ -10,7 +10,7 @@
             </p>
         </header>
         <section>
-            <div class="box">
+            <div class="box" data-aos="fade-right">
                 <h4>01 – research</h4>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia quo iusto commodi fugit? Corporis velit laudantium fugit autem ex aliquid, ab repudiandae eligendi exercitationem reprehenderit voluptate possimus accusantium quis tenetur?</p>
             </div>

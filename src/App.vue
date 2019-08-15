@@ -16,7 +16,6 @@
 <script>
 import Vue from 'vue';
 import Nav from './components/Nav';
-import Ball from './components/Ball';
 
 // AOS
 import AOS from 'aos';
@@ -31,7 +30,6 @@ export default {
     name: 'App',
     components: {
         Nav,
-        Ball,
     },
 };
 </script>
@@ -94,6 +92,7 @@ h1 {
 }
 .page {
     width: 100%;
+    padding-bottom: 2rem;
     header {
         text-align: center;
 

@@ -1,5 +1,5 @@
 <template>
-    <div class="home container">
+    <div class="home container preserve-scroll">
         <section class="header">
             <h1>Tobias Wulvik</h1>
         </section>

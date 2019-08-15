@@ -4,7 +4,7 @@ import Home from './views/Home.vue';
 
 Vue.use(Router);
 
-export default new Router({
+const router = new Router({
     mode: 'history',
     base: process.env.BASE_URL,
     routes: [
@@ -60,3 +60,15 @@ export default new Router({
         }
     },
 });
+
+router.beforeResolve((to, from, next) => {
+    const scrollHeight =
+        window.pageYOffset ||
+        (document.documentElement || document.body.parentNode || document.body)
+            .scrollTop;
+    const preserveScroll = document.querySelector('.preserve-scroll');
+    preserveScroll ? (preserveScroll.style.top = `-${scrollHeight}px`) : null;
+    next();
+});
+
+export default router;
