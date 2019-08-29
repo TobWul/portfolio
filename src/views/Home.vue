@@ -1,8 +1,9 @@
 <template>
     <div class="home container preserve-scroll">
-        <section class="header">
-            <h1>Tobias Wulvik</h1>
-        </section>
+        <h2>
+            Interaction design student, self-taught
+            <br />developer and hobby photographer
+        </h2>
         <section id="projects">
             <ul>
                 <li
@@ -10,28 +11,15 @@
                     :key="index"
                     @mouseover="selectedProject = project"
                 >
-                    <router-link
-                        :to="project.link"
-                        :class="{'selected': project.index === selectedProject.index}"
-                    >
-                        <h4 class="caps">{{ project.title }}</h4>
-                        <p>{{ project.role }}</p>
+                    <router-link :to="project.link" class="project-thumbnail">
+                        <img :src="project.image" alt />
+                        <div class="text">
+                            <h4 class="caps">{{ project.title }}</h4>
+                            <p>{{ project.role }}</p>
+                        </div>
                     </router-link>
                 </li>
             </ul>
-            <div class="sticky-container" data-v-sticky-container>
-                <div
-                    class="preview-image sticky"
-                    v-sticky
-                    sticky-offset="{top: stickyTop, bottom: stickyTop}"
-                >
-                    <img
-                        id="previewImage"
-                        :src="selectedProject.image"
-                        :alt="selectedProject.title"
-                    />
-                </div>
-            </div>
         </section>
     </div>
 </template>
@@ -44,28 +32,35 @@ export default {
         let projects = [
             {
                 index: 0,
-                title: 'sanke – gathering edible plants in oslo',
+                title: 'Sanke – Gathering edible plants in oslo',
                 role: 'UX, UI and frontend developer',
                 link: '/sanke',
-                image: require('../assets/makerbox/Guide_home.png'),
+                image: require('../assets/sanke/SankeFront.png'),
             },
             {
                 index: 1,
-                title: 'sentif – excercise for wheelchair users',
+                title: 'Sentif – Excercise for wheelchair users',
                 role: 'UX, UI',
                 link: '/sentif',
-                image: require('../assets/makerbox/Guide_home.png'),
+                image: require('../assets/sentif/DoubleDiamond.png'),
             },
             {
                 index: 2,
-                title: 'industrielldesign.no – student website',
+                title: 'Industrielldesign.no – Student website',
                 role: 'UX, UI, frontend- and backend-developer',
                 link: '/sentif',
                 image: require('../assets/makerbox/Guide_home.png'),
             },
             {
                 index: 3,
-                title: 'makerbox – how to teach problem solving?',
+                title: 'Hoopit – New economics dashboard',
+                role: 'UX, UI, frontend-developer',
+                link: '/hoopit',
+                image: require('../assets/makerbox/Guide_home.png'),
+            },
+            {
+                index: 4,
+                title: 'Makerbox – How to teach problem solving?',
                 role: 'UI and frontend developer',
                 link: '/sentif',
                 image: require('../assets/makerbox/Guide_home.png'),
@@ -91,51 +86,43 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.home {
-}
 .header {
     height: 40vh;
 }
 #projects {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-
+    margin-top: 15%;
     ul {
-    }
-
-    ul li {
-        margin-bottom: 6rem;
-        h4 {
-            margin-bottom: 1rem;
+        columns: 6 25vw;
+        column-gap: 1rem;
+        margin: 0;
+        padding: 0;
+        @media screen and (max-width: 900px) {
+            column-width: 300px;
         }
-        a {
-            text-decoration: none;
-            color: $dark-gray;
-            transition: color 200ms ease-in-out;
-            will-change: color;
+        li {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
+        .project-thumbnail {
+            position: relative;
+            background: #cccccc;
+            color: white;
+            margin: 0 1rem 1rem 0;
+            display: inline-block;
+            width: 100%;
 
-            &:hover,
-            &.selected {
+            img {
+                width: 100%;
+                height: auto;
+            }
+            .text {
                 color: $black;
+                position: absolute;
+                bottom: 2rem;
+                left: 2rem;
             }
         }
-    }
-}
-.preview-image {
-    max-width: 100%;
-    max-height: 60vh;
-
-    // &.top-sticky {
-    //     display: flex;
-    //     align-items: center;
-    //     position: fixed;
-    //     top: 0;
-    //     height: 100vh;
-    // }
-
-    img {
-        max-width: 100%;
-        max-height: 100%;
     }
 }
 </style>

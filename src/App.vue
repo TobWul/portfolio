@@ -37,7 +37,7 @@ export default {
 @include css-reset;
 html {
     font-size: 62.5%; // 1rem = 10px
-    font-family: 'IBM Plex Serif', serif;
+    font-family: 'Noto Sans', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
@@ -50,7 +50,7 @@ body {
 
 .container {
     width: 100%;
-    padding: 10% 10% 5%;
+    padding: 10% 5% 5%;
 }
 
 .router-enter,
@@ -79,9 +79,8 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: 'IBM Plex Sans', sans-serif;
-    font-weight: 700;
-    text-transform: uppercase;
+    font-family: 'Fjord One', serif;
+    line-height: 1.2em;
 }
 h1 {
     $h1: (
@@ -89,6 +88,35 @@ h1 {
         1024: 36,
     );
     font-size: least-squares-fit($h1);
+}
+h2 {
+    $h2: (
+        576: 24,
+        1024: 28,
+    );
+    font-size: least-squares-fit($h2);
+}
+h4 {
+    $h4: (
+        576: 18,
+        1024: 20,
+    );
+    font-size: least-squares-fit($h4);
+    margin-bottom: 1rem;
+    margin: 0;
+}
+h6 {
+    font-size: 1.6rem;
+    line-height: 1.5em;
+}
+
+p {
+    max-width: 70ch;
+    line-height: 1.5em;
+
+    &.large {
+        font-size: 2.4rem;
+    }
 }
 .page {
     width: 100%;
@@ -128,19 +156,6 @@ h1 {
             max-width: 100%;
             max-height: 100%;
         }
-    }
-}
-h4 {
-    letter-spacing: 0.06em;
-    margin-bottom: 1rem;
-    margin: 0;
-}
-
-p {
-    max-width: 70ch;
-
-    &.large {
-        font-size: 2.4rem;
     }
 }
 </style>

@@ -1,8 +1,14 @@
 <template>
     <div id="nav">
-        <router-link to="/" class="left">TW</router-link>
-        <router-link to="/photography">Photography</router-link>
-        <router-link to="/about">About</router-link>
+        <router-link to="/" class="left">
+            <h4>Tobias Wulvik</h4>
+        </router-link>
+        <router-link to="/photography">
+            <h6>Photography</h6>
+        </router-link>
+        <router-link to="/about">
+            <h6>About</h6>
+        </router-link>
     </div>
 </template>
 
@@ -14,7 +20,7 @@ export default {
 
 <style lang="scss" scoped>
 #nav {
-    padding: 2rem 4rem 2rem 2rem;
+    padding: 3rem 5%;
     width: 100%;
     display: flex;
     justify-content: flex-end;

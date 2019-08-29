@@ -104,9 +104,6 @@
     dl,
     dt,
     dd,
-    ol,
-    ul,
-    li,
     fieldset,
     form,
     label,
@@ -166,9 +163,10 @@
         line-height: 1;
     }
 
-    ol,
-    ul {
-        list-style: none;
+    ul, ol {
+        li {
+            line-height: 1.6em;
+        }
     }
 
     blockquote,
