@@ -1,10 +1,10 @@
 <template>
     <div id="nav">
         <router-link to="/" class="left">
-            <h4>Tobias Wulvik</h4>
-        </router-link>
-        <router-link to="/photography">
-            <h6>Photography</h6>
+            <h4>
+                Tobias
+                <br />Wulvik
+            </h4>
         </router-link>
         <router-link to="/about">
             <h6>About</h6>
