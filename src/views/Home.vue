@@ -81,15 +81,30 @@ export default {
 
 <style lang="scss" scoped>
 .project {
+    $project-animation-duration: 400ms;
     position: relative;
     width: 200px;
     height: 200px;
     display: inline-block;
-    transition: transform 200ms ease-in-out;
     transform-origin: bottom;
     @for $i from 0 through 10 {
         &:nth-child(#{$i + 1}) {
             top: $i * 75px;
+        }
+    }
+    &:hover {
+        .face.front,
+        .face.right {
+            height: 250px;
+        }
+        .face.top,
+        .face.front,
+        .face.right {
+            top: -50px;
+        }
+        .face.shadow {
+            transform: rotate(20deg) skewX(-50deg) skewY(0deg) scaleY(1.2)
+                translate(231px, 70px);
         }
     }
     .face {
@@ -100,6 +115,8 @@ export default {
         height: 200px;
         background: hsl(0, 0, 98);
         margin: 0 1rem 1rem 0;
+        transition: height $project-animation-duration ease-in-out,
+            top $project-animation-duration ease-in-out;
 
         &.front {
             transform: rotate(20deg) skewX(20deg);
@@ -113,13 +130,13 @@ export default {
             transform: rotate(-20deg) skewX(-20deg) skewY(0deg)
                 translateX(185.5px) translateY(87.2px);
             width: 8px;
-            background: hsl(0, 0, 95);
+            background: hsl(0, 0, 90);
         }
         &.top {
             transform: rotate(-20deg) skewX(50deg) skewY(0deg)
                 translateY(-70.6px) translateX(205.4px) scaleY(0.579);
             width: 8px;
-            background: hsl(0, 0, 97);
+            background: hsl(0, 0, 95);
         }
         &.shadow {
             transform: rotate(20deg) skewX(-50deg) skewY(0deg) scaleY(0.87)
@@ -127,6 +144,7 @@ export default {
             background: rgba(0, 0, 0, 0.4);
             height: 100px;
             z-index: -1;
+            transition: transform $project-animation-duration ease-in-out;
         }
     }
 }
