@@ -8,6 +8,10 @@
                 :key="index"
             >
                 <div class="face front">
+                    <div class="text">
+                        <h3>{{project.title}}</h3>
+                        <p>{{project.role}}</p>
+                    </div>
                     <img :src="project.image" alt />
                 </div>
                 <div class="face right"></div>
@@ -19,6 +23,9 @@
 </template>
 
 <script>
+import JQuery from 'jquery';
+let $ = JQuery;
+
 export default {
     name: 'home',
     components: {},
@@ -59,6 +66,34 @@ export default {
                 link: '/sentif',
                 image: require('../assets/makerbox/Guide_home.png'),
             },
+            {
+                index: 4,
+                title: 'Makerbox – How to teach problem solving?',
+                role: 'UI and frontend developer',
+                link: '/sentif',
+                image: require('../assets/makerbox/Guide_home.png'),
+            },
+            {
+                index: 4,
+                title: 'Makerbox – How to teach problem solving?',
+                role: 'UI and frontend developer',
+                link: '/sentif',
+                image: require('../assets/makerbox/Guide_home.png'),
+            },
+            {
+                index: 4,
+                title: 'Makerbox – How to teach problem solving?',
+                role: 'UI and frontend developer',
+                link: '/sentif',
+                image: require('../assets/makerbox/Guide_home.png'),
+            },
+            {
+                index: 4,
+                title: 'Makerbox – How to teach problem solving?',
+                role: 'UI and frontend developer',
+                link: '/sentif',
+                image: require('../assets/makerbox/Guide_home.png'),
+            },
         ];
         return {
             projects: projects,
@@ -67,19 +102,25 @@ export default {
         };
     },
     mounted: function() {
-        this.stickyTop =
-            Math.max(
-                document.documentElement.clientHeight,
-                window.innerHeight || 0
-            ) /
-                2 -
-            document.getElementById('previewImage').offsetWidth / 2;
+        let projects = $('#projects');
+        $(window).scroll(function() {
+            console.log('Scroll');
+            projects.css({
+                transform: `translateX(${-2.9238 * $(this).scrollTop()}px)`,
+            });
+        });
     },
-    methods: {},
 };
 </script>
 
 <style lang="scss" scoped>
+.home {
+    padding-left: 20%;
+}
+#projects {
+    position: relative;
+    white-space: nowrap;
+}
 .project {
     $project-animation-duration: 400ms;
     position: relative;
@@ -105,6 +146,20 @@ export default {
         .face.shadow {
             transform: rotate(20deg) skewX(-50deg) skewY(0deg) scaleY(1.2)
                 translate(231px, 70px);
+        }
+        .text {
+            opacity: 1;
+        }
+    }
+    .text {
+        position: absolute;
+        bottom: calc(100% + 1rem);
+        color: $black;
+        opacity: 0;
+        white-space: pre-wrap;
+        transition: opacity $project-animation-duration ease-in-out;
+        p {
+            font-size: 1.2rem;
         }
     }
     .face {
