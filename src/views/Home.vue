@@ -116,6 +116,9 @@ export default {
 <style lang="scss" scoped>
 .home {
     padding-left: 20%;
+    max-width: 100vw;
+    min-height: 100vh;
+    overflow: hidden;
 }
 #projects {
     position: relative;
